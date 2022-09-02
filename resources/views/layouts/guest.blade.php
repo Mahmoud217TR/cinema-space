@@ -11,13 +11,20 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles  -->
+        @livewireStyles
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        
+        <style>
+            body{
+                background-image: url({{ asset('images/backgrounds/background.svg') }});
+            }
+        </style>
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+        @stack('modals')
+        @livewireScripts
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

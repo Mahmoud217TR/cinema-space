@@ -13,12 +13,17 @@
         <!-- Styles -->
         @livewireStyles
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style>
+            body{
+                background-image: url({{ asset('images/backgrounds/background.svg') }});
+            }
+        </style>
         
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

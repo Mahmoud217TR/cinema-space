@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Interfaces\Media;
+use App\Models\Traits\MediableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
-class Movie extends Model implements Media
+class Movie extends Model
 {
-    use HasFactory;
+    use HasFactory, MediableTrait;
 
-    public function getReletables():MorphToMany{
-        return $this->morphToMany(Media::class,'media','reletables');
-    }
+    protected $with = ['media'];
 }

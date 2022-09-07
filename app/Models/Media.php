@@ -30,8 +30,16 @@ class Media extends Model
     public function getRelatedAttribute(){
         return $this->relatedFrom->merge($this->relatedTo);
     }
-    
+
     public function guessMediaType(){
         return get_class($this);
+    }
+
+    public function scopeMovies($query){
+        $query->where('mediable_type','App\Models\Movie');
+    }
+
+    public function scopeShows($query){
+        $query->where('mediable_type','App\Models\Show');
     }
 }

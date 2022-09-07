@@ -43,4 +43,12 @@ trait MediableTrait{
         }
         return array_values(array_unique($media_ids));
     }
+
+    public function __get($key){
+        $attribute = $this->getAttribute($key);
+        if(!$attribute){
+            return $this->media->{$key};
+        }
+        return $attribute;
+    }
 }

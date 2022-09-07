@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MovieFactory extends Factory
+class ShowFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,7 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            'duration_in_sec' => $this->faker->numberBetween(200,12000),
+            
         ];
     }
 }

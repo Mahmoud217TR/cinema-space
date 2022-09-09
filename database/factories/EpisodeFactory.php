@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Anime;
+use App\Models\Cartoon;
 use App\Models\Season;
 use App\Models\Series;
 use App\Models\Show;
@@ -37,12 +39,32 @@ class EpisodeFactory extends Factory
         });
     }
 
-    public function serires()
+    public function series()
     {
         return $this->state(function (array $attributes) {
             return [
                 'episodable_type' => Series::class,
                 'episodable_id' => Series::factory(),
+            ];
+        });
+    }
+
+    public function anime()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'episodable_type' => Anime::class,
+                'episodable_id' => Anime::factory(),
+            ];
+        });
+    }
+
+    public function cartoon()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'episodable_type' => Cartoon::class,
+                'episodable_id' => Cartoon::factory(),
             ];
         });
     }
@@ -72,6 +94,26 @@ class EpisodeFactory extends Factory
             return [
                 'episodable_type' => Series::class,
                 'episodable_id' => $series_id,
+            ];
+        });
+    }
+
+    public function withAnime($anime_id)
+    {
+        return $this->state(function (array $attributes) use ($anime_id){
+            return [
+                'episodable_type' => Anime::class,
+                'episodable_id' => $anime_id,
+            ];
+        });
+    }
+
+    public function withCartoon($cartoon_id)
+    {
+        return $this->state(function (array $attributes) use ($cartoon_id){
+            return [
+                'episodable_type' => Cartoon::class,
+                'episodable_id' => $cartoon_id,
             ];
         });
     }

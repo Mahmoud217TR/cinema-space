@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Anime;
+use App\Models\Cartoon;
 use App\Models\Episode;
 use App\Models\Movie;
 use App\Models\Season;
@@ -64,6 +66,24 @@ class StateFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'statable_type' => Episode::class,
+            ];
+        });
+    }
+
+    public function anime()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Anime::class,
+            ];
+        });
+    }
+
+    public function cartoon()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Cartoon::class,
             ];
         });
     }

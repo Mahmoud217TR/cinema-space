@@ -12,6 +12,15 @@ if (! function_exists('isMediable')) {
     } 
 }
 
+if (! function_exists('isStatable')) {
+    function isStatable($var) {
+        if(is_object($var)){
+            return in_array(App\Models\Traits\StatableTrait::class, class_uses_recursive($var));
+        }
+        return false;
+    } 
+}
+
 if (! function_exists('getCLassColumns')) {
     function getCLassColumns($class) {
         return \Schema::getColumnListing((new $class)->getTable());
@@ -52,5 +61,20 @@ if (! function_exists('getMediables')) {
         return getModels()->filter(function($model){
             return isMediable($model);
         })->values();
+    } 
+}
+
+if (! function_exists('getStatables')) {
+    function getStatables() {
+        return getModels()->filter(function($model){
+            return isStatable($model);
+        })->values();
+    } 
+}
+
+if (! function_exists('getClassFromName')) {
+    function getClassFromName($name) {
+        $class = new $name;
+        return $class;
     } 
 }

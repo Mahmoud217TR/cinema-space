@@ -3,7 +3,6 @@
 namespace App\Models\Traits;
 
 use App\Models\Media;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 trait MediableTrait{
 
@@ -50,5 +49,9 @@ trait MediableTrait{
             return $this->media->{$key};
         }
         return $attribute;
+    }
+
+    public function guessStatableType(){
+        return get_class(new Media());
     }
 }

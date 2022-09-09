@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use App\Models\Classes\Mediable;
 
-class Movie extends Media
+class Movie extends Model
 {
     use HasFactory, MediableTrait, HasDurationTrait;
 

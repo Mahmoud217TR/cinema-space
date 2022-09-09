@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\Season;
 use App\Models\State;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMediaTable extends Migration
+class CreateEpisodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +15,15 @@ class CreateMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('media', function (Blueprint $table) {
+        Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->morphs('episodable');
             $table->text('description')->nullable();
             $table->date('release_date')->nullable();
-            $table->morphs('mediable');
+            $table->unsignedInteger('duration_in_sec')->nullable();
             $table->foreignIdFor(State::class);
+            $table->foreignIdFor(Season::class);
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ class CreateMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media');
+        Schema::dropIfExists('episodes');
     }
 }

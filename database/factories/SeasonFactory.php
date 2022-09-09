@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\State;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SeriesFactory extends Factory
+class SeasonFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +15,8 @@ class SeriesFactory extends Factory
     public function definition()
     {
         return [
-            
+            'description' => $this->faker->sentence(5),
+            'state_id' => State::factory()->season(),
         ];
     }
 }

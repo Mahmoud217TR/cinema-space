@@ -10,4 +10,9 @@ trait HasDurationTrait{
         $duration = new Duration($this->duration_in_sec);
         return $duration->getDuration();
     }
+
+    public function setDurationAttribute($value){
+        $duration = new Duration($value);
+        $this->duration_in_sec = $duration->getSeconds();
+    }
 }

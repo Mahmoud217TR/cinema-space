@@ -33,8 +33,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'episodable_type' => Show::class,
-                'episodable_id' => Show::factory(),
+                'episodes_of_type' => Show::class,
+                'episodes_of_id' => Show::factory(),
             ];
         });
     }
@@ -43,8 +43,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'episodable_type' => Series::class,
-                'episodable_id' => Series::factory(),
+                'episodes_of_type' => Series::class,
+                'episodes_of_id' => Series::factory(),
             ];
         });
     }
@@ -53,8 +53,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'episodable_type' => Anime::class,
-                'episodable_id' => Anime::factory(),
+                'episodes_of_type' => Anime::class,
+                'episodes_of_id' => Anime::factory(),
             ];
         });
     }
@@ -63,8 +63,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'episodable_type' => Cartoon::class,
-                'episodable_id' => Cartoon::factory(),
+                'episodes_of_type' => Cartoon::class,
+                'episodes_of_id' => Cartoon::factory(),
             ];
         });
     }
@@ -82,8 +82,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) use ($show_id){
             return [
-                'episodable_type' => Show::class,
-                'episodable_id' => $show_id,
+                'episodes_of_type' => Show::class,
+                'episodes_of_id' => $show_id,
             ];
         });
     }
@@ -92,8 +92,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) use ($series_id){
             return [
-                'episodable_type' => Series::class,
-                'episodable_id' => $series_id,
+                'episodes_of_type' => Series::class,
+                'episodes_of_id' => $series_id,
             ];
         });
     }
@@ -102,8 +102,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) use ($anime_id){
             return [
-                'episodable_type' => Anime::class,
-                'episodable_id' => $anime_id,
+                'episodes_of_type' => Anime::class,
+                'episodes_of_id' => $anime_id,
             ];
         });
     }
@@ -112,8 +112,8 @@ class EpisodeFactory extends Factory
     {
         return $this->state(function (array $attributes) use ($cartoon_id){
             return [
-                'episodable_type' => Cartoon::class,
-                'episodable_id' => $cartoon_id,
+                'episodes_of_type' => Cartoon::class,
+                'episodes_of_id' => $cartoon_id,
             ];
         });
     }

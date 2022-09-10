@@ -22,6 +22,7 @@ class SeriesSeeder extends Seeder
             ->withSeason($season->id)
             ->withSeries($media->mediable->id)
             ->create();
+
         });
     }
 }

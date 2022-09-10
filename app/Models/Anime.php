@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Traits\EpisodableTrait;
+use App\Models\Traits\HasEpisodesTrait;
 use App\Models\Traits\MediableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Anime extends Model
 {
-    use HasFactory, MediableTrait, EpisodableTrait;
+    use HasFactory, MediableTrait, HasEpisodesTrait;
 
     protected $with = ['media'];
 }

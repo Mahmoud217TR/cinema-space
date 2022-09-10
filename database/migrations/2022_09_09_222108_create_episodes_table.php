@@ -18,7 +18,7 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->morphs('episodable');
+            $table->morphs('episodes_of');
             $table->text('description')->nullable();
             $table->date('release_date')->nullable();
             $table->unsignedInteger('duration_in_sec')->nullable();

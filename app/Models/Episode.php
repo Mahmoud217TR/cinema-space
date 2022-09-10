@@ -11,14 +11,22 @@ class Episode extends Model
 {
     use HasFactory, StatableTrait, HasDurationTrait;
 
-    protected $with = ['episodable'];
+    protected $with = ['episodes_of'];
 
-    public function episodable(){
-        return $this->morphTo();
+    public function episodes_of(){
+        return $this->morphTo('episodes_of');
     }
 
     public function season(){
         return $this->belongsTo(Season::class);
+    }
+
+    public function scopeInSeason($query,Season $season){
+        $query->where('season_id','=',$season->id);
+    }
+
+    public static function getLastPositio($episode):int {
+        return self::InSeason($episode->season)->max('position');
     }
 
 }

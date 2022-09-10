@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Episode;
 use App\Models\Media;
+use App\Models\Rating;
 use App\Models\Season;
 use Illuminate\Database\Seeder;
 
@@ -18,11 +19,17 @@ class SeriesSeeder extends Seeder
     {
         Media::factory(5)->series()->create()->each(function($media){
             $season = Season::factory()->create();
-            Episode::factory(3)
-            ->withSeason($season->id)
-            ->withSeries($media->mediable->id)
-            ->create();
+            Rating::factory(3)->withSeason($season)->create();
 
+            Episode::factory(3)
+            ->withSeason($season)
+            ->withSeries($media->mediable)
+            ->create()
+            ->each(function($episode){
+                Rating::factory(3)->withEpisode($episode)->create();
+            });
+            
+            Rating::factory(3)->withMedia($media)->create();
         });
     }
 }

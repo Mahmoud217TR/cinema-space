@@ -7,8 +7,6 @@ use App\Models\Traits\HasDurationTrait;
 use App\Models\Traits\MediableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use App\Models\Classes\Mediable;
 
 class Movie extends Model
 {

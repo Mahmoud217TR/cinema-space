@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasRatingTrait;
 use App\Models\Traits\StatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
-    use HasFactory, StatableTrait;
+    use HasFactory, StatableTrait, HasRatingTrait;
 
     protected $with = ['state'];
 

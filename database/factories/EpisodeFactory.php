@@ -69,41 +69,41 @@ class EpisodeFactory extends Factory
         });
     }
 
-    public function withSeason($season_id)
+    public function withSeason(Season $season)
     {
-        return $this->state(function (array $attributes) use ($season_id){
+        return $this->state(function (array $attributes) use ($season){
             return [
-                'season_id' => $season_id,
+                'season_id' => $season->id,
             ];
         });
     }
 
-    public function withShow($show_id)
+    public function withShow(Show $show)
     {
-        return $this->state(function (array $attributes) use ($show_id){
+        return $this->state(function (array $attributes) use ($show){
             return [
                 'episodes_of_type' => Show::class,
-                'episodes_of_id' => $show_id,
+                'episodes_of_id' => $show->id,
             ];
         });
     }
 
-    public function withSeries($series_id)
+    public function withSeries(Series $series)
     {
-        return $this->state(function (array $attributes) use ($series_id){
+        return $this->state(function (array $attributes) use ($series){
             return [
                 'episodes_of_type' => Series::class,
-                'episodes_of_id' => $series_id,
+                'episodes_of_id' => $series->id,
             ];
         });
     }
 
-    public function withAnime($anime_id)
+    public function withAnime(Anime $anime)
     {
-        return $this->state(function (array $attributes) use ($anime_id){
+        return $this->state(function (array $attributes) use ($anime){
             return [
                 'episodes_of_type' => Anime::class,
-                'episodes_of_id' => $anime_id,
+                'episodes_of_id' => $anime->id,
             ];
         });
     }

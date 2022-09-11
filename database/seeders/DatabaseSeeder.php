@@ -14,19 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            UserSeeder::class,
-            MovieSeeder::class,
-            SeriesSeeder::class,
-            ShowSeeder::class,
-            AnimeSeeder::class,
-            CartoonSeeder::class,
-            GameSeeder::class,
-            MusicSeeder::class,
-            BookSeeder::class,
-            MangaSeeder::class,
-            ComicSeeder::class,
-        ]);
+        // $this->call([
+            
+        // ]);
         
     }
 }

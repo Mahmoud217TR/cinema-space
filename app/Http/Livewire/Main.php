@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Classes\TMDB;
 use App\Models\Movie;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use Livewire\Component;
 
 class Main extends Component
@@ -15,7 +14,7 @@ class Main extends Component
 
     public function search(){
         if($this->keyword){
-            $this->results = Movie::where('name','like','%'.$this->keyword.'%')->limit(6)->get();
+            $this->results = $this->getMovies()->take(10);
         }else{
             $this->results = [];
         }
@@ -25,5 +24,9 @@ class Main extends Component
     {
         return view('livewire.main')
             ->layout('layouts.livewire');
+    }
+
+    public function getMovies(){
+        return collect(TMDB::search($this->keyword)->results);
     }
 }

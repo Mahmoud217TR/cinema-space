@@ -16,7 +16,7 @@
                         <ul class="mt-2 py-2 px-4 bg-white rounded-lg absolute w-full">
                             @forelse($results as $result)
                                 <li class="pt-2 pb-1">
-                                    <a href="#" class="font-bold">{{ $result->name }}</a>
+                                    <a href="#" class="font-bold">{{ $result->title }}</a>
                                 </li>
                                 <hr>
                             @empty

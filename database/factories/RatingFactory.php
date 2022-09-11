@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Chapter;
 use App\Models\Episode;
 use App\Models\Media;
 use App\Models\Season;
@@ -23,7 +24,7 @@ class RatingFactory extends Factory
             'rate' => $this->faker->numberBetween(1,10),
             'weight' => $this->faker->numberBetween(1,5),
             'spoiler' => $this->faker->boolean(20),
-            'user_id' => User::factory(),
+            'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
 
@@ -57,6 +58,16 @@ class RatingFactory extends Factory
         });
     }
 
+    public function chapter()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'ratable_type' => Chapter::class,
+                'ratable_id' => Chapter::factory(),
+            ];
+        });
+    }
+
     public function withMedia(Media $media)
     {
         return $this->state(function (array $attributes) use ($media) {
@@ -83,6 +94,25 @@ class RatingFactory extends Factory
             return [
                 'ratable_type' => Season::class,
                 'ratable_id' => $season->id,
+            ];
+        });
+    }
+
+    public function withChapter(Chapter $chapter)
+    {
+        return $this->state(function (array $attributes) use ($chapter) {
+            return [
+                'ratable_type' => Chapter::class,
+                'ratable_id' => $chapter->id,
+            ];
+        });
+    }
+
+    public function withNewUser(Chapter $chapter)
+    {
+        return $this->state(function (array $attributes) use ($chapter) {
+            return [
+                'user_id' => User::factory(),
             ];
         });
     }

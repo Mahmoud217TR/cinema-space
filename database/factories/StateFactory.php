@@ -3,9 +3,14 @@
 namespace Database\Factories;
 
 use App\Models\Anime;
+use App\Models\Book;
 use App\Models\Cartoon;
+use App\Models\Comic;
 use App\Models\Episode;
+use App\Models\Game;
+use App\Models\Manga;
 use App\Models\Movie;
+use App\Models\Music;
 use App\Models\Season;
 use App\Models\Series;
 use App\Models\Show;
@@ -84,6 +89,51 @@ class StateFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'statable_type' => Cartoon::class,
+            ];
+        });
+    }
+
+    public function game()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Game::class,
+            ];
+        });
+    }
+
+    public function music()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Music::class,
+            ];
+        });
+    }
+
+    public function book()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Book::class,
+            ];
+        });
+    }
+
+    public function manga()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Manga::class,
+            ];
+        });
+    }
+
+    public function comic()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'statable_type' => Comic::class,
             ];
         });
     }

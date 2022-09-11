@@ -26,8 +26,4 @@ class Episode extends Model
         $query->where('season_id','=',$season->id);
     }
 
-    public static function getLastPositio($episode):int {
-        return self::InSeason($episode->season)->max('position');
-    }
-
 }

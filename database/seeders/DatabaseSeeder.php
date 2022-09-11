@@ -2,10 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Episode;
-use App\Models\Media;
-use App\Models\Season;
-use App\Models\Series;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,11 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            UserSeeder::class,
             MovieSeeder::class,
             SeriesSeeder::class,
             ShowSeeder::class,
             AnimeSeeder::class,
             CartoonSeeder::class,
+            GameSeeder::class,
+            MusicSeeder::class,
+            BookSeeder::class,
+            MangaSeeder::class,
+            ComicSeeder::class,
         ]);
         
     }

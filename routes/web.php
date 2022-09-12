@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Main;
+use App\Http\Livewire\Movie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Main::class);
+Route::get('/Move/{id}', Movie::class)->name('movie');
 
 Route::middleware([
     'auth:sanctum',

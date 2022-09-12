@@ -14,7 +14,7 @@ class Main extends Component
 
     public function search(){
         if($this->keyword){
-            $this->results = $this->getMovies()->take(10);
+            $this->results = $this->getMovies()->take(6);
         }else{
             $this->results = [];
         }

@@ -25,11 +25,11 @@
 
                                             <div class="ml-2 p-2 overflow-hidden">
                                                 <h3 class="text-lg truncate">{{ $result->title??'' }}</h3>
-                                                <span class="text-blue-500 text-sm">
-                                                    {{ Carbon\Carbon::create($result->release_date??'')->format('Y') }}
+                                                <span class="text-blue-500 text-sm my-1">
+                                                    {{ Carbon\Carbon::create($result->release_date??'')->format('Y') }} <i class="fa-solid fa-calendar-days"></i>
                                                 </span>
-                                                <div class="text-yellow-500 text-sm">
-                                                    {{ $result->vote_average??'' }}
+                                                <div class="text-yellow-500 text-sm my-1">
+                                                    {{ $result->vote_average??'' }} <i class="fa-solid fa-star"></i>
                                                 </div>
                                             </div>
                                         </div>

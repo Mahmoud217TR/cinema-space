@@ -36,8 +36,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    
+                <div class="mt-4">
+                    <p class="text-slate-50">
+                        {{ $movie['overview'] }}
+                    </p>
                 </div>
             </div>
         </div>
